@@ -1,0 +1,136 @@
+<html><head>
+<meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0" />
+
+<style type="text/css">
+*{
+	padding: 0;
+	margin: 0;}
+body{background: white;
+	background-image: url('bg.jpg');
+	background-repeat:no-repeat; ;
+	background-size: cover;
+	background-position:center center;
+}
+div{
+	box-shadow: 0px 0px 10px ;
+	overflow:hidden;
+	width:50% ;
+	height: 75%;
+	background-color: rgba(240, 240, 240,0.7);
+	margin-top:5% ;
+	margin-left: 25%;
+	transition:1s;
+}div header{
+	width:100% ;
+	height: 15%;
+	/*margin-top:;margin-left:;*/
+}div header button{
+	border:none;
+	cursor: pointer;
+	font-weight: bold;
+	color:white;
+	width:50% ;
+	height: 100%;
+	font-size: 17;
+	background-color: rgba(31, 37, 29,0.7);
+}div form{
+	border:2px solid white ;
+	display:block;
+	width:80% ;
+	height: 75%;
+	transition:1s;
+	margin-top:3%;
+	margin-left:10%;
+	background-color: rgba(31, 37, 29,0.7);
+}div form input{
+	font-size: 15;
+	width:50% ;
+	height: 10%;
+	background:none;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+	color:white;
+	margin-top:10%;
+	margin-left:25%;
+	border-bottom:1px solid white;
+}div form input[type="submit"]{
+	cursor: pointer;
+	font-size: 15;
+	border-radius: 5px;
+	border:1px solid white;
+	font-weight:bold;
+	color:white;
+}
+#frm2{
+	margin-top: 25%;
+	display:block;
+	transition:1s;
+}
+</style>
+<script type="text/javascript">
+function _(x){
+	return document.getElementById(x);
+}
+function shad () {
+	_('d').style.boxShadow ="0px 0px 0px";
+}function move1 () {
+	_('frm1').style.marginLeft ="100%";
+	_('frm2').style.marginTop ="-56%";// here you can adjustment rising from of sign in
+}function move2 () {
+	_('frm1').style.marginLeft ="10%";
+	_('frm2').style.marginTop ="25%";
+}function validate (c,f) {
+	if (_(c).value=="") {
+		_(c).style.borderColor = "red";
+		_(f).style.borderColor="red";
+		_('frm1').style.boxShadow = "0px 0px 90px ";
+		_('frm2').style.boxShadow = "0px 0px 90px ";
+		
+	}else{
+		_(c).style.borderColor = "green";
+		_(f).style.borderColor="green";
+		_('frm1').style.boxShadow = "0px 0px 0px ";
+		_('frm2').style.boxShadow = "0px 0px 0px ";
+		
+	}
+
+}</script>
+</head>
+<body>
+
+	
+<div id="d">
+
+
+<header><button  style="border-right: 1px solid white;" onclick="move2()">Login</button><button onclick="move1 ()">Sign up</button></header>
+<form id="frm1">
+<input type="text" id="em" placeholder="E-mail*" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required><br>
+<input type="password" id="ps" placeholder="Password*" required><br>
+<input type="submit" id="sub"  value="Login"><br>
+</form>
+
+
+<form id="frm2">
+<input type="text" id="user" placeholder="Username*" required><br>
+<input type="text" id="ems" placeholder="E-mail*" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required><br>
+<input type="password" id="pss" placeholder="Password*" required><br>
+<input type="submit"  style="margin-top:6%;"  value="Sing up"><br>
+</form>
+
+
+</div>
+
+
+
+<script >
+//object.onblur=function(){myScript};
+_('em').onblur = function() {validate ('em','frm1');};
+_('ps').onblur = function() {validate ('ps','frm1');};
+
+_('user').onblur= function() {validate ('user','frm2');};
+_('ems').onblur= function() {validate ('ems','frm2');};
+_('pss').onblur=function(){validate('pss','frm2');};
+</script>
+
+</body></html>
